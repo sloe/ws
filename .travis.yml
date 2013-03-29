@@ -6,8 +6,6 @@ php:
 
 branches:
   only:
-    - 3.0.x
-    - 3.1.x
     - master
 
 services:
