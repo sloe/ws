@@ -1,0 +1,3 @@
+[submodule "ws-mod"]
+	path = ws-mod
+	url = ssh://git@github.com/sloe/ws-mod
