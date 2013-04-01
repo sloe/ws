@@ -4,3 +4,6 @@
 [submodule "gallery3-contrib"]
 	path = gallery3-contrib
 	url = https://github.com/gallery/gallery3-contrib.git
+[submodule "ws-sloe"]
+	path = ws-sloe
+	url = git@github.com:sloe/ws-sloe.git
