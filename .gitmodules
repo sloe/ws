@@ -1,3 +1,6 @@
 [submodule "ws-mod"]
 	path = ws-mod
 	url = ssh://git@github.com/sloe/ws-mod
+[submodule "gallery3-contrib"]
+	path = gallery3-contrib
+	url = https://github.com/gallery/gallery3-contrib.git

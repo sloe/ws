@@ -3,7 +3,7 @@
 cd /tmp
 installpath=`dirname "$0"`
 
-yum install -y php-mbstring php-mysql php-fpm
+yum install -y ImageMagick php-mbstring php-mysql php-fpm
 chkconfig php-fpm on
 
 #wget http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
