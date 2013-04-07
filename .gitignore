@@ -14,6 +14,9 @@ Vagrantfile
 # Editor files
 *~
 
+# site symlink
+sql_admin
+
 # Contrib module symlinks
 modules/about
 modules/about_this_album
@@ -38,6 +41,7 @@ modules/captionator
 modules/carousel
 modules/contactowner
 modules/content_warning
+modules/custom_fields
 modules/custom_menus
 modules/database_info
 modules/date_tag
