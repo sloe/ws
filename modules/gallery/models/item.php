@@ -405,7 +405,9 @@ class Item_Model_Core extends ORM_MPTT {
 
         case "photo":
         case "movie":
-          copy($this->data_file, $this->file_path());
+          if (!file_exist($this->file_path())) {
+            copy($this->data_file, $this->file_path());
+          }
           break;
         }
 

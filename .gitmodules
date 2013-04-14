@@ -1,9 +1,9 @@
 [submodule "ws-mod"]
-	path = ws-mod
-	url = ssh://git@github.com/sloe/ws-mod
+  path = ws-mod
+  url = https://git@github.com/sloe/ws-mod
 [submodule "gallery3-contrib"]
-	path = gallery3-contrib
-	url = https://github.com/gallery/gallery3-contrib.git
+  path = gallery3-contrib
+  url = https://github.com/gallery/gallery3-contrib.git
 [submodule "ws-sloe"]
-	path = ws-sloe
-	url = git@github.com:sloe/ws-sloe.git
+  path = ws-sloe
+  url = https://github.com/sloe/ws-sloe.git

@@ -296,6 +296,7 @@ class gallery_event_Core {
                         ->label(t("Add")));
           $is_album_writable =
             is_writable($item->is_album() ? $item->file_path() : $item->parent()->file_path());
+          $is_album_writable = 1;
           if ($is_album_writable) {
             $add_menu->append(Menu::factory("dialog")
                               ->id("add_photos_item")
