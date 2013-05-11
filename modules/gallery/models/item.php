@@ -385,7 +385,7 @@ class Item_Model_Core extends ORM_MPTT {
           }
         }
 
-        $this->_check_and_fix_conflicts();
+        /* $this->_check_and_fix_conflicts(); */
 
         parent::save();
 
@@ -398,16 +398,29 @@ class Item_Model_Core extends ORM_MPTT {
         // Take any actions that we can only do once all our paths are set correctly after saving.
         switch ($this->type) {
         case "album":
-          mkdir($this->file_path());
-          mkdir(dirname($this->thumb_path()));
-          mkdir(dirname($this->resize_path()));
+          if (!file_exists($this->file_path())) {
+            mkdir($this->file_path());
+          }
+          if (!file_exists($this->thumb_path())) {
+            mkdir(dirname($this->thumb_path()));
+          }
+          if (!file_exists($this->resize_path())) {
+            mkdir(dirname($this->resize_path()));
+          }
           break;
 
         case "photo":
         case "movie":
-          if (!file_exist($this->file_path())) {
-            copy($this->data_file, $this->file_path());
+
+          if (!file_exists($this->file_path())) {
+            $shadow_path = str_replace("albums", "albums_shadow", $this->file_path());
+            if (file_exists($shadow_path)) {
+              symlink($shadow_path, $this->file_path());
+            } else {
+              copy($this->data_file, $this->file_path());
+            }
           }
+          // Other do nothing - file already there
           break;
         }
 
@@ -454,7 +467,7 @@ class Item_Model_Core extends ORM_MPTT {
           $this->relative_url_cache = null;
         }
 
-        $this->_check_and_fix_conflicts();
+        /* $this->_check_and_fix_conflicts(); */
 
         parent::save();
 
@@ -982,7 +995,7 @@ class Item_Model_Core extends ORM_MPTT {
     if (!is_file($this->data_file)) {
       $v->add_error("name", "bad_data_file_path");
     } else if (filesize($this->data_file) == 0) {
-      $v->add_error("name", "empty_data_file");
+      /* $v->add_error("name", "empty_data_file"); */
     } else if ($this->data_file_error) {
       $v->add_error("name", "invalid_data_file");
     }
