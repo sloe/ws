@@ -99,6 +99,7 @@ class gallery_installer {
                  `resize_height` int(9) default NULL,
                  `resize_width` int(9) default NULL,
                  `right_ptr` int(9) NOT NULL,
+                 `sloe_uuid` char(36) default NULL,
                  `slug` varchar(255) default NULL,
                  `sort_column` varchar(64) default NULL,
                  `sort_order` char(4) default 'ASC',

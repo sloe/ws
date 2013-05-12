@@ -101,7 +101,7 @@ class item_rest_Core {
       // Only change fields from a whitelist.
       foreach (array("album_cover", "captured", "description",
                      "height", "mime_type", "name", "parent", "rand_key", "resize_dirty",
-                     "resize_height", "resize_width", "slug", "sort_column", "sort_order",
+                     "resize_height", "resize_width", "sloe_uuid", "slug", "sort_column", "sort_order",
                      "thumb_dirty", "thumb_height", "thumb_width", "title", "view_count",
                      "width") as $key) {
         switch ($key) {
@@ -177,6 +177,7 @@ class item_rest_Core {
     $item->name = $entity->name;
     $item->title = isset($entity->title) ? $entity->title : $entity->name;
     $item->description = isset($entity->description) ? $entity->description : null;
+    $item->sloe_uuid = isset($entity->sloe_uuid) ? $entity->sloe_uuid : null;
     $item->slug = isset($entity->slug) ? $entity->slug : null;
     $item->save();
     break;

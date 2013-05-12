@@ -876,6 +876,7 @@ class Item_Model_Core extends ORM_MPTT {
                                        "callbacks" => array(array($this, "valid_name"))),
         "parent_id"           => array("callbacks" => array(array($this, "valid_parent"))),
         "rand_key"            => array("rule"      => array("decimal")),
+        "sloe_uuid"           => array("callbacks" => array(array($this, "valid_sloe_uuid"))),
         "slug"                => array("rules"     => array("length[0,255]", "required"),
                                        "callbacks" => array(array($this, "valid_slug"))),
         "sort_column"         => array("callbacks" => array(array($this, "valid_field"))),
@@ -900,6 +901,16 @@ class Item_Model_Core extends ORM_MPTT {
     }
 
     parent::validate($array);
+  }
+
+
+  /**
+   * Validate the sloe_uuid.
+   */
+  public function valid_sloe_uuid(Validation $v, $field) {
+    if (!preg_match("/^[A-F0-9a-f]{8}-[A-F0-9a-f]{4}-[A-F0-9a-f]{4}-[A-F0-9a-f]{4}-[A-F0-9a-f]{12}$/", $this->sloe_uuid)) {
+      $v->add_error("sloe_uuid", "invalid sloe_uuid: " . $this->sloe_uuid);
+    }
   }
 
   /**
